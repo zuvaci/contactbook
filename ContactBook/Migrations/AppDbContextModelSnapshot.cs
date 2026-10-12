@@ -41,6 +41,9 @@ namespace ContactBook.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Note")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Phone")
                         .HasColumnType("TEXT");
 

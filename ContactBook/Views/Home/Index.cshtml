@@ -1,14 +1,15 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 @model List<Contact>
 
 <div class="text-center">
     @foreach (var contact in Model)
     {
+        <a href="Add">+</a>
         <div class="card">
-        <h1>@contact.FirstName @contact.LastName</h1>
-        <p>@contact.Email</p>
+                <h1>@contact.FirstName @contact.LastName</h1>
+                <p>@contact.Email</p>
         </div>
     }
 </div>

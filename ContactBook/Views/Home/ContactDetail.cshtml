@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Contact Detail";
+}
+@model List<Contact>
+
+<div class="text-center">
+    @foreach (var contact in Model)
+    {
+		<div class="card">
+			<a href="@Url.Action("", "Home")">
+            <h1>@contact.FirstName @contact.LastName</h1>
+            <p>@contact.Email</p>
+            </a>
+        </div>
+
+    }
+</div>

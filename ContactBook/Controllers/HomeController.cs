@@ -23,6 +23,16 @@ namespace ContactBook.Controllers
             return View(contacts);
         }
 
+        public IActionResult ContactDetail(int Id)
+        {
+            var contact = _contactService.GetById(Id);
+            return View(contact);
+        }
+        public IActionResult Add()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
