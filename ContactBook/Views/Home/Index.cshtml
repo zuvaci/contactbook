@@ -7,7 +7,7 @@
 	<a href="@Url.Action("Add", "Home")" class="btn btn-primary mb-3">Add Contact</a>
     @foreach (var contact in Model)
     {
-        <a href="ContactDetail">
+        <a asp-action="ContactDetail" asp-route-id="@contact.Id">
         <div class="card">
                 <h1>@contact.FirstName @contact.LastName</h1>
                 <p>@contact.Email</p>

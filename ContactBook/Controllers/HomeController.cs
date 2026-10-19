@@ -23,8 +23,9 @@ namespace ContactBook.Controllers
             return View(contacts);
         }
 
-        public IActionResult ContactDetail(Contact contact)
+        public IActionResult ContactDetail(int id)
         {
+            var contact = _contactService.GetById(id);
             return View(contact);
         }
         public IActionResult Add()
@@ -51,11 +52,19 @@ namespace ContactBook.Controllers
             }
             return NotFound();
         }
-
         public IActionResult Update(int id)
         {
             var contact = _contactService.GetById(id);
-            _contactService.Update(contact);
+            return View(contact);
+        }
+        [HttpPost]
+        public IActionResult Update(Contact contact)
+        {
+            if (ModelState.IsValid)
+            {
+                _contactService.Update(contact);
+                return RedirectToAction("Index");
+            }
             return View(contact);
         }
         public IActionResult Privacy()

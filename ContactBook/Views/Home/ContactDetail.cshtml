@@ -5,8 +5,8 @@
 
 <div class="text-center">
         <div class="card">
-        <a href="@Url.Action("Edit", "Home")" class="btn btn-primary mb-3">Edit Contact</a>
-		<button asp-action="Delete">Delete Contact</button>
+        <a asp-action="Update" asp-route-id="@Model.Id" class="btn btn-primary mb-3">Edit Contact</a>
+        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-primary mb-3">Delete Contact</a>
         <h1>@Model.FirstName @Model.LastName</h1>
         <p>@Model.Email</p>
         </div>
