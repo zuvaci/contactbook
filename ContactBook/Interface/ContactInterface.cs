@@ -8,6 +8,5 @@ namespace ContactBook.Interface
         Contact GetById(int id);
         Contact Add(Contact contact);
         Contact Update(Contact contact);
-        bool Delete(int id);
     }
 }

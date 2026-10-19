@@ -23,49 +23,9 @@ namespace ContactBook.Controllers
             return View(contacts);
         }
 
-        public IActionResult ContactDetail(int id)
+        public IActionResult ContactDetail()
         {
-            var contact = _contactService.GetById(id);
-            return View(contact);
-        }
-        public IActionResult Add()
-        {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult Add(Contact contact)
-        {
-            if (ModelState.IsValid)
-            {
-                _contactService.Add(contact);
-                return RedirectToAction("Index");
-            }
-            return View(contact);
-        }
-        public IActionResult Delete(int id)
-        {
-            var contact = _contactService.GetById(id);
-            if (contact != null)
-            {
-                _contactService.Delete(id);
-                return RedirectToAction("Index");
-            }
-            return NotFound();
-        }
-        public IActionResult Update(int id)
-        {
-            var contact = _contactService.GetById(id);
-            return View(contact);
-        }
-        [HttpPost]
-        public IActionResult Update(Contact contact)
-        {
-            if (ModelState.IsValid)
-            {
-                _contactService.Update(contact);
-                return RedirectToAction("Index");
-            }
-            return View(contact);
+            
         }
         public IActionResult Privacy()
         {
