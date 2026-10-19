@@ -4,12 +4,13 @@
 @model List<Contact>
 
 <div class="text-center">
+	<a href="@Url.Action("Add", "Home")" class="btn btn-primary mb-3">Add Contact</a>
     @foreach (var contact in Model)
     {
-        <a href="Add">+</a>
+        <a href="ContactDetail">
         <div class="card">
                 <h1>@contact.FirstName @contact.LastName</h1>
                 <p>@contact.Email</p>
-        </div>
+        </div></a>
     }
 </div>

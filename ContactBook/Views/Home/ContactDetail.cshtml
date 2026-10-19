@@ -1,17 +1,13 @@
 ﻿@{
     ViewData["Title"] = "Contact Detail";
 }
-@model List<Contact>
+@model Contact
 
 <div class="text-center">
-    @foreach (var contact in Model)
-    {
-		<div class="card">
-			<a href="@Url.Action("", "Home")">
-            <h1>@contact.FirstName @contact.LastName</h1>
-            <p>@contact.Email</p>
-            </a>
+        <div class="card">
+        <a href="@Url.Action("Edit", "Home")" class="btn btn-primary mb-3">Edit Contact</a>
+		<button asp-action="Delete">Delete Contact</button>
+        <h1>@Model.FirstName @Model.LastName</h1>
+        <p>@Model.Email</p>
         </div>
-
-    }
 </div>

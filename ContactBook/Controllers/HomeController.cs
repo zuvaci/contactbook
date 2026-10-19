@@ -23,16 +23,41 @@ namespace ContactBook.Controllers
             return View(contacts);
         }
 
-        public IActionResult ContactDetail(int Id)
+        public IActionResult ContactDetail(Contact contact)
         {
-            var contact = _contactService.GetById(Id);
             return View(contact);
         }
         public IActionResult Add()
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Add(Contact contact)
+        {
+            if (ModelState.IsValid)
+            {
+                _contactService.Add(contact);
+                return RedirectToAction("Index");
+            }
+            return View(contact);
+        }
+        public IActionResult Delete(int id)
+        {
+            var contact = _contactService.GetById(id);
+            if (contact != null)
+            {
+                _contactService.Delete(id);
+                return RedirectToAction("Index");
+            }
+            return NotFound();
+        }
 
+        public IActionResult Update(int id)
+        {
+            var contact = _contactService.GetById(id);
+            _contactService.Update(contact);
+            return View(contact);
+        }
         public IActionResult Privacy()
         {
             return View();
